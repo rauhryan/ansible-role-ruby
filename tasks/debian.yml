@@ -1,7 +1,6 @@
 ---
 - name: Install Ruby
   command: ruby-install ruby {{ ruby_version }}
-  when: ruby_install_path.stat.exists == false
 
 - name: Install bundler gem
   gem: name=bundler state=present
