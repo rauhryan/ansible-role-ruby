@@ -12,7 +12,7 @@ galaxy_info:
       - vivid
       - wily
   dependencies:
-  - ferrarimarco.ruby-install
+    - ferrarimarco.ruby-install
   galaxy_tags:
     - installer
     - ruby
