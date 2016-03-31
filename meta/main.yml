@@ -1,5 +1,6 @@
 ---
-dependencies: []
+dependencies:
+  - { role: ferrarimarco.ruby-install }
 
 galaxy_info:
   author: ferrarimarco
@@ -11,8 +12,6 @@ galaxy_info:
     versions:
       - vivid
       - wily
-  dependencies:
-    - ferrarimarco.ruby-install
   galaxy_tags:
     - installer
     - ruby
