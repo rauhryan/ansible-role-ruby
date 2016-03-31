@@ -1,4 +1,21 @@
 ---
+- name: Ensure required packages are installed (apt)
+  become: true
+  action: apt pkg={{ item }} state=installed
+  with_items:
+    - git-core
+    - build-essential
+    - libsqlite3-dev
+    - libxslt1-dev
+    - libxml2-dev
+    - zlib1g-dev
+    - libssl-dev
+    - libreadline-dev
+    - libyaml-dev
+    - libffi-dev
+    - libgdbm-dev
+    - libncurses5-dev
+
 - name: Install Ruby
   command: ruby-install ruby {{ ruby_version }}
 
