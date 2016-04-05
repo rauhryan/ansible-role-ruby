@@ -18,6 +18,7 @@ install:
   - "{ echo '[defaults]'; echo 'roles_path = ../'; } >> ansible.cfg"
 
   # Install required roles
+  - ansible-galaxy install ferrarimarco.chruby
   - ansible-galaxy install ferrarimarco.ruby-install
 script:
   # Check the role/playbook's syntax.
