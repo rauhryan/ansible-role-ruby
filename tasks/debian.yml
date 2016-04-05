@@ -16,8 +16,17 @@
     - libgdbm-dev
     - libncurses5-dev
 
-- name: Install Ruby
-  command: ruby-install ruby {{ ruby_version }}
+- name: Get the username of who is running the playbook
+  local_action: command whoami
+  become: no
+  register: remote_user
+  changed_when: false
 
-- name: Install bundler gem
-  gem: name=bundler state=present
+- name: Ensure Ruby is installed
+  stat:
+    path: /home/{{ remote_user.stdout }}/.rubies/ruby-{{ ruby_version }}
+  register: ruby_gem_stat
+
+- name: Install Ruby with ruby-install
+  command: ruby-install ruby {{ ruby_version }}
+  when: ruby_gem_stat.stat.exists == False
