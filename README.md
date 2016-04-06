@@ -1,7 +1,7 @@
 # Ansible Role: Install Ruby
 [![Build Status](https://travis-ci.org/ferrarimarco/ansible-role-ruby.svg?branch=master)](https://travis-ci.org/ferrarimarco/ansible-role-ruby)
 
-An Ansible role that installs Ruby using ruby-install. It also installs the `bundler` gem.
+An Ansible role that installs Ruby using ruby-install.
 
 ## Using the role
 ### Installation
