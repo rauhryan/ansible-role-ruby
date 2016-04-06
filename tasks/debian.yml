@@ -1,6 +1,7 @@
 ---
 - name: Ensure required packages are installed (apt)
   action: apt pkg={{ item }} state=installed
+  become: yes
   with_items:
     - git-core
     - build-essential
@@ -15,21 +16,7 @@
     - libgdbm-dev
     - libncurses5-dev
 
-- name: Get the username of who is running the playbook
-  shell: whoami
-  register: ruby_whoami
-
-- debug: var=ruby_whoami
-
-- name: Check if Ruby is already installed in /opt/rubies
-  stat:
-    path: /opt/rubies/ruby-{{ ruby_version }}
-  register: ruby_opt
-  failed_when: false
-  changed_when: false
-
-- debug: var=ruby_opt
-
 - name: Install Ruby with ruby-install
-  command: ruby-install ruby {{ ruby_version }}
-  when: false
+  command: ruby-install --no-reinstall ruby {{ ruby_version }}
+  register: ruby_install_output
+  changed_when: "'Ruby is already installed into' not in ruby_install_output.stdout"
