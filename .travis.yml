@@ -5,6 +5,7 @@ python: "2.7"
 
 env:
   - SITE=test.yml
+  - SITE=test_become.yml
 
 before_install:
   - sudo apt-get update -qq
