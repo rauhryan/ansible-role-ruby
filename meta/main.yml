@@ -1,7 +1,7 @@
 ---
 dependencies:
-  - { role: ferrarimarco.ruby-install }
-  - { role: ferrarimarco.chruby }
+  - { role: rauhryan.ruby-install }
+  - { role: rauhryan.chruby }
 
 galaxy_info:
   author: ferrarimarco
